@@ -13,7 +13,13 @@ const appRoutes: Routes = [
   { path: "about", component: AboutComponent },
   {
     path: "user",
-    children: [{ path: "list", component: UserListComponent }]
+    children: [
+      {
+        path: "list",
+        component: UserListComponent,
+        children: [{ path: "detail/:name", component: UserComponent }]
+      }
+    ]
   },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
